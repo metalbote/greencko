@@ -1,0 +1,82 @@
+name: greenery
+description: 'A green Drupal distribution with a unique design and a preconfigured set of modules'
+type: profile
+core: 8.x
+dependencies:
+  - action
+  - automated_cron
+  - block
+  - block_content
+  - breakpoint
+  - ckeditor
+  - color
+  - comment
+  - config
+  - config_translation
+  - contact
+  - contextual
+  - datetime
+  - dblog
+  - dynamic_page_cache
+  - editor
+  - field
+  - field_ui
+  - file
+  - filter
+  - help
+  - history
+  - image
+  - language
+  - link
+  - locale
+  - menu_link_content
+  - menu_ui
+  - node
+  - options
+  - page_cache
+  - path
+  - quickedit
+  - rdf
+  - responsive_image
+  - search
+  - shortcut
+  - system
+  - taxonomy
+  - telephone
+  - text
+  - toolbar
+  - tour
+  - tracker
+  - update
+  - user
+  - views
+  - views_ui
+  #contrib
+  - admin_toolbar
+  - admin_toolbar_tools
+  - backup_migrate
+  - captcha
+  - config_update
+  - config_update_ui
+  - ctools
+  - db_maintenance
+  - features
+  - features_ui
+  - layout_plugin
+  - libraries
+  - metatag
+  - metatag_open_graph
+  - metatag_verification
+  - panels
+  - panels_ipe
+  - pathauto
+  - scheduler
+  - spamspan
+  - special_menu_items
+  - token
+themes:
+  - bartik
+  - seven
+package: greenery
+distribution:
+  name: greenery

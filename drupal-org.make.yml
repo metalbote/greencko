@@ -1,0 +1,102 @@
+core: 8.x
+api: 2
+
+defaults:
+  projects:
+    subdir: 'contrib'
+
+projects:
+  admin_toolbar:
+    type: 'module'
+    version: '1.15'
+
+  backup_migrate:
+    type: 'module'
+    version: '4.0-alpha1'
+
+  captcha:
+    type: 'module'
+    version: '1.0-alpha0'
+
+  config_update:
+    type: 'module'
+    version: '1.1'
+
+  crop:
+    type: 'module'
+    version: '1.0-rc1'
+
+  ctools:
+    type: 'module'
+    version: '3.0-alpha26'
+
+  db_maintenance:
+    type: 'module'
+    version: '1.2'
+
+  devel:
+    type: 'module'
+    version: '1.x-dev'
+
+  features:
+    type: 'module'
+    version: '3.0-beta5'
+
+  focal_point:
+    type: 'module'
+    version: '1.0-beta1'
+
+  l10n_client:
+    type: 'module'
+    version: '1.0-alpha1'
+    
+  layout_plugin:
+    type: 'module'
+    version: '1.0-alpha22'
+    patch:
+      - https://www.drupal.org/files/issues/2575401-11-l10n_client-d8-port.patch
+
+  libraries:
+    type: 'module'
+    version: '3.x-dev'
+  
+  metatag:
+    type: 'module'
+    version: '1.0-beta9'
+
+  page_manager:
+    type: 'moduöe'
+    version: '1.0-alpha23'
+
+
+  panels:
+    type: 'module'
+    version: '3.0-beta4'
+
+  pathauto:
+    type: 'module'
+    version: '1.0-alpha3'
+
+  scheduler:
+    type: 'module'
+    version: '1.0-alpha1'
+
+  simple_sitemap:
+    type: 'module'
+    version: '2.5'
+
+  spamspan:
+    type: 'module'
+    version: '1.x-dev'
+
+  special_menu_items:
+    type: 'module'
+    version: '1.x-dev'
+
+  token:
+    type: 'module'
+    version: '1.0-alpha2'
+
+  xmlrpc:
+    type: 'module'
+    version: '1.x-dev'
