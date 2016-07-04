@@ -53,21 +53,18 @@ projects:
   layout_plugin:
     type: 'module'
     version: '1.0-alpha22'
-    patch:
-      - https://www.drupal.org/files/issues/2575401-11-l10n_client-d8-port.patch
 
   libraries:
     type: 'module'
     version: '3.x-dev'
-  
+
   metatag:
     type: 'module'
     version: '1.0-beta9'
 
   page_manager:
-    type: 'moduöe'
+    type: 'module'
     version: '1.0-alpha23'
-
 
   panels:
     type: 'module'
