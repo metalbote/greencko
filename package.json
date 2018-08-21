@@ -1,0 +1,40 @@
+{
+  "name": "greencko",
+  "version": "0.0.1",
+  "description": "greencko",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "glob": "^7.1.2",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-recolor-svg": "^1.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-require-tasks": "^1.2.1",
+    "gulp": "^3.9.1",
+    "imagemin-pngquant": "^5.1.0",
+    "materialize-css": "^0.100.2",
+    "sass-web-fonts": "^2.0.2",
+    "run-sequence": "^2.2.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-no-browser-hacks": "^1.2.1",
+    "stylelint-scss": "^3.1.2"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "gulp": "gulp"
+  },
+  "author": "Jörg Riemenschneider <info@joergriemenschneider.de>",
+  "license": "MIT",
+  "private": true
+}

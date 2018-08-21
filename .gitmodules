@@ -1,0 +1,24 @@
+[submodule "modules/custom/greencko_core"]
+	path = modules/custom/greencko_core
+	url = https://github.com/metalbote/greencko_core.git
+[submodule "modules/custom/greencko_editor"]
+	path = modules/custom/greencko_editor
+	url = https://github.com/metalbote/greencko_editor.git
+[submodule "modules/custom/greencko_user"]
+	path = modules/custom/greencko_user
+	url = https://github.com/metalbote/greencko_user.git
+[submodule "modules/custom/greencko_seo"]
+	path = modules/custom/greencko_seo
+	url = https://github.com/metalbote/greencko_seo.git
+[submodule "modules/custom/greencko_search"]
+	path = modules/custom/greencko_search
+	url = https://github.com/metalbote/greencko_search.git
+[submodule "modules/custom/greencko_media"]
+	path = modules/custom/greencko_media
+	url = https://github.com/metalbote/greencko_media.git
+[submodule "modules/custom/greencko_paragraphs"]
+	path = modules/custom/greencko_paragraphs
+	url = https://github.com/metalbote/greencko_paragraphs.git
+[submodule "modules/custom/greencko_pages"]
+	path = modules/custom/greencko_pages
+	url = https://github.com/metalbote/greencko_pages.git
