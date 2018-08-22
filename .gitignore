@@ -13,9 +13,11 @@ pinegrow.json
 ## ignore packager folders
 bower_components/
 node_modules/
+package-lock.json
 
 ## ignore tempory folders
 tmp
+.tmp-ico
 .sass-cache/
 
 ## Log files
@@ -27,6 +29,7 @@ tmp
 # Drupal
 /modules/contrib
 /themes/contrib
+/translations
 
 # Specials
 /assets/colors.png
