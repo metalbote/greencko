@@ -19,12 +19,3 @@ greencko_ui_jqueryui_dialog_close: true
 greencko_ui_collapse_module_list: true
 greencko_ui_message_length: 88
 greencko_ui_message_prompt: true
-material_admin_node_actions: 1
-material_admin_portal_login: 1
-material_admin_jqueryui_dialog_background: 1
-material_admin_jqueryui_dialog_close: 1
-material_admin_collapse_module_list: 1
-material_admin_message_length: '300'
-material_admin_message_prompt: 1
-material_admin_datepicker_select_years: ''
-material_admin_select_default: 0

@@ -38,7 +38,7 @@ function greencko_form_install_configure_form_alter(&$form, FormStateInterface $
   $form['regional_settings']['site_default_country']['#default_value'] = 'DE';
   $form['regional_settings']['date_default_timezone']['#default_value'] = 'Europe/Berlin';
 }
-
+/*
 function greencko_module_implements_alter(&$implementations, $hook) {
   switch ($hook) {
     case 'form_alter':
@@ -57,7 +57,7 @@ function greencko_module_implements_alter(&$implementations, $hook) {
       break;
   }
 }
-
+*/
 /**
  * Implements hook_install_tasks().
  */

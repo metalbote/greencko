@@ -4,11 +4,11 @@ type: profile
 core: 8.x
 version: 8.x-6.x-dev
 package: Greencko
-base profile: varbase
-#distribution:
-#  name: greencko
-#  install:
-#    theme: greencko_ui
+'base profile': varbase
+distribution:
+  name: Greencko
+  install:
+    theme: greencko_ui
 features: true
 'interface translation project': greencko
 'interface translation server pattern': profiles/greencko/translations/%project-%version-%language.po
