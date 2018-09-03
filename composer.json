@@ -1,0 +1,256 @@
+{
+    "name": "metalbote/greencko",
+    "description": "Enhanced Drupal distribution based upon Varbase",
+    "type": "drupal-profile",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Jörg Riemenschneider",
+            "email": "info@joergriemenschneider.de",
+            "homepage": "https://www.joergriemenschneider.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/metalbote/greencko/issues",
+        "source": "https://github.com/metalbote/greencko/"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "metalbote/varbase": {
+            "type": "package",
+            "package": {
+                "name": "metalbote/varbase",
+                "version": "dev-8.x-6.x",
+                "type": "package",
+                "source": {
+                    "url": "git@github.com:metalbote/varbase.git",
+                    "type": "git",
+                    "reference": "8.x-6.x"
+                }
+            }
+        },
+        "greencko_core": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_core.git"
+        },
+        "greencko_development": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_development.git"
+        },
+        "greencko_webform": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_webform.git"
+        },
+        "greencko_editor": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_editor.git"
+        },
+        "greencko_media": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_media.git"
+        },
+        "greencko_pages": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_pages.git"
+        },
+        "greencko_paragraphs": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_paragraphs.git"
+        },
+        "greencko_search": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_search.git"
+        },
+        "greencko_seo": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_seo.git"
+        },
+        "greencko_user": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko_user.git"
+        }
+    },
+    "require": {
+        "bower-asset/jquery-simple-color": "^1.2",
+        "bower-asset/spectrum": "^1.8",
+        "composer/installers": "^1.5.0",
+        "cweagans/composer-patches": "^1.6.4",
+        "drupal-composer/drupal-scaffold": "2.4.0",
+        "drupal/address": "^1.4",
+        "drupal/admin_login_path": "^1.0",
+        "drupal/browsersync": "^1.0@beta",
+        "drupal/drupal-library-installer-plugin": "^0.3",
+        "drupal/corporate_lite": "^1.0",
+        "drupal/config_split": "^1.3",
+        "drupal/drupal8_custom_theme": "^1.4",
+        "drupal/faq": "1.x-dev#2bdc0f0fd3fa1941bf7d3579a498e6f40ca9c69a",
+        "drupal/fixed_text_link_formatter": "^1.3",
+        "drupal/flag": "4.0-alpha3",
+        "drupal/fontawesome": "^2.3",
+        "drupal/hacked": "^2.0@beta",
+        "drupal/material_admin_support": "1.x-dev#96ce192c31643faf69d77aca3c68578f778be3bc",
+        "drupal/menu_item_visibility": "1.x-dev#7806c36b68bdc1ac3582e3a034b94126cd3d1d32",
+        "drupal/onepage_zymphonies_theme": "^1.4",
+        "drupal/sharethis": "2.0-beta3",
+        "drupal/showcase_lite": "^1.1",
+        "drupal/toolbar_menu": "^2.1",
+        "drupal/type_style": "1.x-dev#486a8ec7c1c7dcd93790ee281c78cfa3dba90d78",
+        "drupal/username_enumeration_prevention": "^1.0",
+        "drupal/varbase_faqs": "6.x-dev"
+        "drupal/votingapi": "3.0-alpha7",
+        "drupal/votingapi_widgets": "1.x-dev#4aa50d00ad3928cd90eb1f922956b9f46ab18f2c",
+        "oomphinc/composer-installers-extender": "1.1.2",
+        "metalbote/greencko_core": "*",
+        "metalbote/greencko_development": "*",
+        "metalbote/greencko_webform": "*",
+        "metalbote/greencko_editor": "*",
+        "metalbote/greencko_media": "*",
+        "metalbote/greencko_pages": "*",
+        "metalbote/greencko_paragraphs": "*",
+        "metalbote/greencko_search": "*",
+        "metalbote/greencko_seo": "*",
+        "metalbote/greencko_user": "*"
+    },
+    "require-dev": {
+        "drush/drush": "^9.3",
+        "drupal/console": "^1.8",
+        "drupal/coder": "8.2.12",
+        "drupal/drupal-extension": "3.4.1",
+        "phing/phing": "2.16.1",
+        "behat/behat": "3.4.3",
+        "behat/mink": "1.7.1",
+        "behat/mink-extension": "2.3.1",
+        "behat/mink-goutte-driver": "1.2.1",
+        "behat/mink-zombie-driver": "1.4.0",
+        "behat/mink-selenium2-driver": "1.3.1",
+        "behatch/contexts": "3.1.0",
+        "emuse/behat-html-formatter": "0.1.0",
+        "kint-php/kint": "^2.2",
+        "phpmd/phpmd": "^2.6",
+        "symfony/config": "^3.0",
+        "symfony/filesystem": "^3.0",
+        "vlucas/phpdotenv": "^2.5",
+        "webflo/drupal-core-require-dev": "^8.6"
+    },
+    "config": {
+    "bin-dir": "private/bin/",
+    "optimize-autoloader": true,
+    "secure-http": false,
+    "sort-packages": true,
+    "vendor-dir": "private/vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Greencko\\composer\\": "src/composer"
+    },
+    "files": [
+      "load.environment.php"
+    ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "post-install-cmd": [
+      "Greencko\\composer\\ScriptHandler::createRequiredFiles",
+      "@composer drupal-scaffold"
+        ],
+        "post-update-cmd": [
+      "Greencko\\composer\\ScriptHandler::createRequiredFiles",
+      "@composer drupal-scaffold"
+        ],
+        "post-drupal-scaffold-cmd": [
+            "Varbase\\composer\\ScriptHandler::postDrupalScaffoldProcedure",
+            "Greencko\\composer\\ScriptHandler::postDrupalScaffoldSubProfileProcedure"
+        ],
+        "clean-dev": [
+            "Varbase\\composer\\ScriptHandler::removeGitDirectories",
+            "Greencko\\composer\\ScriptHandler::removeGitDirectories"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-8.x-6.x": "8.6.x-dev"
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core",
+                "drupal/core"
+            ],
+            "web/profiles/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "web/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ],
+            "web/libraries/slick": [
+                "npm-asset/slick-carousel"
+            ],
+            "web/libraries/ace": [
+                "npm-asset/ace-builds"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "drush/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        },
+        "drupal-libraries": {
+            "library-directory": "web/libraries",
+            "libraries": [
+                {
+                    "name": "dropzone",
+                    "package": "npm-asset/dropzone"
+                },
+                {
+                    "name": "blazy",
+                    "package": "npm-asset/blazy"
+                },
+                {
+                    "name": "slick",
+                    "package": "npm-asset/slick-carousel"
+                },
+                {
+                    "name": "ace",
+                    "package": "npm-asset/ace-builds"
+                }
+            ]
+        },
+        "enable-patching": true,
+        "composer-exit-on-patch-failure": true,
+        "patches": {
+            "drupal/core": {
+                "Issue #2868193: Account administration pages' language negotiation causes 'access denied' in toolbar subtree caching.": "https://www.drupal.org/files/issues/2868193-10.patch",
+                "Issue #2915728: Comment update core 8.4": "https://www.drupal.org/files/issues/comment-action_exist-2915728-13.patch",
+                "Issue #2924112: Support class definition on field_layout": "https://www.drupal.org/files/issues/dynamic-regions-2924112-2.patch"
+            },
+            "drupal/material_admin": {
+                "Issue #2993313: Error: drupalSettings.material_admin.material_admin_message_length is undefined": "patches/material_admin-2993313-1.patch"
+            }
+        }
+    }
+}
