@@ -26,56 +26,63 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
-        "metalbote/varbase": {
+        "antennaio/jquery-bar-rating": {
             "type": "package",
             "package": {
-                "name": "metalbote/varbase",
-                "version": "dev-8.x-6.x",
-                "type": "package",
-                "source": {
-                    "url": "git@github.com:metalbote/varbase.git",
-                    "type": "git",
-                    "reference": "8.x-6.x"
+                "name": "antennaio/jquery-bar-rating",
+                "version": "1.2.2",
+                "type": "drupal-library",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/antennaio/jquery-bar-rating/archive/v1.2.2.zip"
                 }
             }
         },
-        "greencko_core": {
+        "metalbote/varbase": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/varbase.git"
+        },
+        "metalbote/greencko": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/greencko.git"
+        },
+        "metalbote/greencko_core": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_core.git"
         },
-        "greencko_development": {
+        "metalbote/greencko_development": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_development.git"
         },
-        "greencko_webform": {
+        "metalbote/greencko_webform": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_webform.git"
         },
-        "greencko_editor": {
+        "metalbote/greencko_editor": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_editor.git"
         },
-        "greencko_media": {
+        "metalbote/greencko_media": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_media.git"
         },
-        "greencko_pages": {
+        "metalbote/greencko_pages": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_pages.git"
         },
-        "greencko_paragraphs": {
+        "metalbote/greencko_paragraphs": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_paragraphs.git"
         },
-        "greencko_search": {
+        "metalbote/greencko_search": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_search.git"
         },
-        "greencko_seo": {
+        "metalbote/greencko_seo": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_seo.git"
         },
-        "greencko_user": {
+        "metalbote/greencko_user": {
             "type": "vcs",
             "url": "https://github.com/metalbote/greencko_user.git"
         }
@@ -104,22 +111,23 @@
         "drupal/sharethis": "2.0-beta3",
         "drupal/showcase_lite": "^1.1",
         "drupal/toolbar_menu": "^2.1",
-        "drupal/type_style": "1.x-dev#486a8ec7c1c7dcd93790ee281c78cfa3dba90d78",
+        "drupal/type_style": "1.x-dev#486a8ec7c1c   7dcd93790ee281c78cfa3dba90d78",
         "drupal/username_enumeration_prevention": "^1.0",
-        "drupal/varbase_faqs": "6.x-dev"
+        "drupal/varbase_faqs": "6.x-dev",
         "drupal/votingapi": "3.0-alpha7",
         "drupal/votingapi_widgets": "1.x-dev#4aa50d00ad3928cd90eb1f922956b9f46ab18f2c",
         "oomphinc/composer-installers-extender": "1.1.2",
-        "metalbote/greencko_core": "*",
-        "metalbote/greencko_development": "*",
-        "metalbote/greencko_webform": "*",
-        "metalbote/greencko_editor": "*",
-        "metalbote/greencko_media": "*",
-        "metalbote/greencko_pages": "*",
-        "metalbote/greencko_paragraphs": "*",
-        "metalbote/greencko_search": "*",
-        "metalbote/greencko_seo": "*",
-        "metalbote/greencko_user": "*"
+        "vardot/varbase": "dev-dev-8.x-6.x",
+        "metalbote/greencko_core": "master",
+        "metalbote/greencko_development": "master",
+        "metalbote/greencko_webform": "master",
+        "metalbote/greencko_editor": "master",
+        "metalbote/greencko_media": "master",
+        "metalbote/greencko_pages": "master",
+        "metalbote/greencko_paragraphs": "master",
+        "metalbote/greencko_search": "master",
+        "metalbote/greencko_seo": "master",
+        "metalbote/greencko_user": "master"
     },
     "require-dev": {
         "drush/drush": "^9.3",
@@ -143,29 +151,26 @@
         "webflo/drupal-core-require-dev": "^8.6"
     },
     "config": {
-    "bin-dir": "private/bin/",
-    "optimize-autoloader": true,
-    "secure-http": false,
-    "sort-packages": true,
-    "vendor-dir": "private/vendor"
+        "bin-dir": "private/bin/",
+        "optimize-autoloader": true,
+        "secure-http": false,
+        "sort-packages": true,
+        "vendor-dir": "private/vendor"
     },
     "autoload": {
         "psr-4": {
             "Greencko\\composer\\": "src/composer"
-    },
-    "files": [
-      "load.environment.php"
-    ]
+        }
     },
     "scripts": {
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "post-install-cmd": [
-      "Greencko\\composer\\ScriptHandler::createRequiredFiles",
-      "@composer drupal-scaffold"
+            "Greencko\\composer\\ScriptHandler::createRequiredFiles",
+            "@composer drupal-scaffold"
         ],
         "post-update-cmd": [
-      "Greencko\\composer\\ScriptHandler::createRequiredFiles",
-      "@composer drupal-scaffold"
+            "Greencko\\composer\\ScriptHandler::createRequiredFiles",
+            "@composer drupal-scaffold"
         ],
         "post-drupal-scaffold-cmd": [
             "Varbase\\composer\\ScriptHandler::postDrupalScaffoldProcedure",
@@ -182,6 +187,8 @@
         },
         "installer-types": [
             "bower-asset",
+            "component",
+            "library",
             "npm-asset"
         ],
         "installer-paths": {
