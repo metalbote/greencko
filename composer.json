@@ -43,47 +43,47 @@
             "url": "https://github.com/metalbote/varbase.git"
         },
         "metalbote/greencko": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko.git"
         },
         "metalbote/greencko_core": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_core.git"
         },
         "metalbote/greencko_development": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_development.git"
         },
         "metalbote/greencko_webform": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_webform.git"
         },
         "metalbote/greencko_editor": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_editor.git"
         },
         "metalbote/greencko_media": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_media.git"
         },
         "metalbote/greencko_pages": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_pages.git"
         },
         "metalbote/greencko_paragraphs": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_paragraphs.git"
         },
         "metalbote/greencko_search": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_search.git"
         },
         "metalbote/greencko_seo": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_seo.git"
         },
         "metalbote/greencko_user": {
-            "type": "vcs",
+            "type": "github",
             "url": "https://github.com/metalbote/greencko_user.git"
         }
     },
@@ -105,13 +105,14 @@
         "drupal/flag": "4.0-alpha3",
         "drupal/fontawesome": "^2.3",
         "drupal/hacked": "^2.0@beta",
-        "drupal/material_admin_support": "1.x-dev#96ce192c31643faf69d77aca3c68578f778be3bc",
+        "drupal/material_admin": "1.x-dev#cdd7b5229c2b58585a39f4b6447ae5bbbae128b1",
+        "drupal/material_admin_support": "1.x-dev#a618eb1a86bf2f64f1eee5074abb897926199237",
         "drupal/menu_item_visibility": "1.x-dev#7806c36b68bdc1ac3582e3a034b94126cd3d1d32",
         "drupal/onepage_zymphonies_theme": "^1.4",
         "drupal/sharethis": "2.0-beta3",
         "drupal/showcase_lite": "^1.1",
         "drupal/toolbar_menu": "^2.1",
-        "drupal/type_style": "1.x-dev#486a8ec7c1c   7dcd93790ee281c78cfa3dba90d78",
+        "drupal/type_style": "1.x-dev#486a8ec7c1c7dcd93790ee281c78cfa3dba90d78",
         "drupal/username_enumeration_prevention": "^1.0",
         "drupal/varbase_faqs": "6.x-dev",
         "drupal/votingapi": "3.0-alpha7",
@@ -249,15 +250,6 @@
         },
         "enable-patching": true,
         "composer-exit-on-patch-failure": true,
-        "patches": {
-            "drupal/core": {
-                "Issue #2868193: Account administration pages' language negotiation causes 'access denied' in toolbar subtree caching.": "https://www.drupal.org/files/issues/2868193-10.patch",
-                "Issue #2915728: Comment update core 8.4": "https://www.drupal.org/files/issues/comment-action_exist-2915728-13.patch",
-                "Issue #2924112: Support class definition on field_layout": "https://www.drupal.org/files/issues/dynamic-regions-2924112-2.patch"
-            },
-            "drupal/material_admin": {
-                "Issue #2993313: Error: drupalSettings.material_admin.material_admin_message_length is undefined": "patches/material_admin-2993313-1.patch"
-            }
-        }
+        "patches": {}
     }
 }
