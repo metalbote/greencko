@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "ie >= 9",
+            "edge >= 13",
+            "firefox >= 5",
+            "opera >= 12",
+            "safari >= 5",
+            "chrome >= 56"
+          ]
+        }
+      }
+    ]
+  ]
+}

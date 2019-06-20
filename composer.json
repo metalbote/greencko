@@ -1,10 +1,8 @@
 {
-    "name": "metalbote/greencko",
+    "name": "greencko/greencko",
     "description": "Enhanced Drupal distribution based upon Varbase",
     "type": "drupal-profile",
     "license": "GPL-2.0-or-later",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "authors": [
         {
             "name": "Jörg Riemenschneider",
@@ -26,6 +24,14 @@
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
+        "composer-patches": {
+            "type": "vcs",
+            "url": "https://github.com/metalbote/composer-patches.git"
+        },
+        "phingdrushtask": {
+            "type": "vcs",
+            "url": "https://github.com/pfrenssen/phingdrushtask.git"
+        },
         "antennaio/jquery-bar-rating": {
             "type": "package",
             "package": {
@@ -38,151 +44,100 @@
                 }
             }
         },
-        "metalbote/varbase": {
+        "greencko/greencko": {
             "type": "vcs",
-            "url": "https://github.com/metalbote/varbase.git"
-        },
-        "metalbote/greencko": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko.git"
-        },
-        "metalbote/greencko_core": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_core.git"
-        },
-        "metalbote/greencko_development": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_development.git"
-        },
-        "metalbote/greencko_webform": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_webform.git"
-        },
-        "metalbote/greencko_editor": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_editor.git"
-        },
-        "metalbote/greencko_media": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_media.git"
-        },
-        "metalbote/greencko_pages": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_pages.git"
-        },
-        "metalbote/greencko_paragraphs": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_paragraphs.git"
-        },
-        "metalbote/greencko_search": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_search.git"
-        },
-        "metalbote/greencko_seo": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_seo.git"
-        },
-        "metalbote/greencko_user": {
-            "type": "github",
-            "url": "https://github.com/metalbote/greencko_user.git"
+            "url": "ssh://git@gitea.psh:22/Greencko/greencko.git"
         }
     },
     "require": {
-        "bower-asset/jquery-simple-color": "^1.2",
-        "bower-asset/spectrum": "^1.8",
-        "composer/installers": "^1.5.0",
-        "cweagans/composer-patches": "^1.6.4",
-        "drupal-composer/drupal-scaffold": "2.4.0",
-        "drupal/address": "^1.4",
-        "drupal/admin_login_path": "^1.0",
-        "drupal/browsersync": "^1.0@beta",
+        "ext-json": "*",
+        "composer/installers": "^1.5",
+        "cweagans/composer-patches": "~1.0",
+        "drupal-composer/drupal-scaffold": "^2.5",
+        "drupal/console": "^1.8",
         "drupal/drupal-library-installer-plugin": "^0.3",
-        "drupal/corporate_lite": "^1.0",
-        "drupal/config_split": "^1.3",
-        "drupal/drupal8_custom_theme": "^1.4",
-        "drupal/faq": "1.x-dev#2bdc0f0fd3fa1941bf7d3579a498e6f40ca9c69a",
-        "drupal/fixed_text_link_formatter": "^1.3",
-        "drupal/flag": "4.0-alpha3",
-        "drupal/fontawesome": "^2.3",
-        "drupal/hacked": "^2.0@beta",
-        "drupal/material_admin": "1.x-dev#cdd7b5229c2b58585a39f4b6447ae5bbbae128b1",
-        "drupal/material_admin_support": "1.x-dev#a618eb1a86bf2f64f1eee5074abb897926199237",
-        "drupal/menu_item_visibility": "1.x-dev#7806c36b68bdc1ac3582e3a034b94126cd3d1d32",
-        "drupal/onepage_zymphonies_theme": "^1.4",
-        "drupal/sharethis": "2.0-beta3",
-        "drupal/showcase_lite": "^1.1",
-        "drupal/toolbar_menu": "^2.1",
-        "drupal/type_style": "1.x-dev#486a8ec7c1c7dcd93790ee281c78cfa3dba90d78",
-        "drupal/username_enumeration_prevention": "^1.0",
-        "drupal/varbase_faqs": "6.x-dev",
-        "drupal/votingapi": "3.0-alpha7",
-        "drupal/votingapi_widgets": "1.x-dev#4aa50d00ad3928cd90eb1f922956b9f46ab18f2c",
-        "oomphinc/composer-installers-extender": "1.1.2",
-        "vardot/varbase": "dev-dev-8.x-6.x",
-        "metalbote/greencko_core": "master",
-        "metalbote/greencko_development": "master",
-        "metalbote/greencko_webform": "master",
-        "metalbote/greencko_editor": "master",
-        "metalbote/greencko_media": "master",
-        "metalbote/greencko_pages": "master",
-        "metalbote/greencko_paragraphs": "master",
-        "metalbote/greencko_search": "master",
-        "metalbote/greencko_seo": "master",
-        "metalbote/greencko_user": "master"
+        "drush/drush": "^9.0",
+        "greencko/greencko_core": "dev-develop",
+        "greencko/greencko_pages": "dev-develop",
+        "greencko/greencko_toolbar": "dev-develop",
+        "greencko/greencko_ui": "dev-develop",
+        "oomphinc/composer-installers-extender": "^1.1",
+        "vardot/varbase": "^8.6.9",
+        "vardot/varbase-updater": "~1.0",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-core-strict": "^8.6",
+        "webflo/drupal-finder": "^1.1",
+        "webmozart/path-util": "^2.3"
     },
     "require-dev": {
-        "drush/drush": "^9.3",
-        "drupal/console": "^1.8",
-        "drupal/coder": "8.2.12",
-        "drupal/drupal-extension": "3.4.1",
-        "phing/phing": "2.16.1",
-        "behat/behat": "3.4.3",
-        "behat/mink": "1.7.1",
-        "behat/mink-extension": "2.3.1",
-        "behat/mink-goutte-driver": "1.2.1",
-        "behat/mink-zombie-driver": "1.4.0",
-        "behat/mink-selenium2-driver": "1.3.1",
-        "behatch/contexts": "3.1.0",
-        "emuse/behat-html-formatter": "0.1.0",
-        "kint-php/kint": "^2.2",
-        "phpmd/phpmd": "^2.6",
-        "symfony/config": "^3.0",
-        "symfony/filesystem": "^3.0",
-        "vlucas/phpdotenv": "^2.5",
-        "webflo/drupal-core-require-dev": "^8.6"
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "behat/behat": "^3.5",
+        "behat/mink": "1.7.x-dev",
+        "behat/mink-extension": "^2.3",
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/mink-zombie-driver": "^1.4",
+        "behat/mink-selenium2-driver": "1.3.x-dev",
+        "behatch/contexts": "^3.2",
+        "drupal/drupal-extension": "^3.4",
+        "emuse/behat-html-formatter": "dev-master",
+        "rdx/behat-variables": "^1.2",
+        "drupal/coder": "^8.3",
+        "drupal/phingdrushtask": "dev-7.x-2.x#f4b020f09da3c174fce40f2bd9a9617689f57124",
+        "drupol/phingbehattask": "^1.2",
+        "geerlingguy/drupal-vm": "^5.0",
+        "phing/phing": "~2.0",
+        "mglaman/phpstan-drupal": "^0.11.7",
+        "phpmd/phpmd": "^2.6"
     },
     "config": {
-        "bin-dir": "private/bin/",
-        "optimize-autoloader": true,
+        "bin-dir": "private/bin",
         "secure-http": false,
-        "sort-packages": true,
-        "vendor-dir": "private/vendor"
+        "optimize-autoloader": true,
+        "vendor-dir": "private/vendor",
+        "process-timeout": 0,
+        "preferred-install": {
+            "drupal/core": "dist"
+        }
     },
     "autoload": {
         "psr-4": {
-            "Greencko\\composer\\": "src/composer"
+            "Greencko\\": "src",
+            "Greencko\\Composer\\": "src/Composer",
+            "Greencko\\Phing\\": "src/Phing",
+            "Greencko\\tests\\": "tests/src"
         }
     },
     "scripts": {
         "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
         "post-install-cmd": [
-            "Greencko\\composer\\ScriptHandler::createRequiredFiles",
+            "Greencko\\Composer\\ScriptHandler::createRequiredFiles",
             "@composer drupal-scaffold"
         ],
         "post-update-cmd": [
-            "Greencko\\composer\\ScriptHandler::createRequiredFiles",
-            "@composer drupal-scaffold"
+            "Greencko\\Composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-drupal-scaffold-cmd": [
-            "Varbase\\composer\\ScriptHandler::postDrupalScaffoldProcedure",
-            "Greencko\\composer\\ScriptHandler::postDrupalScaffoldSubProfileProcedure"
+            "Greencko\\Composer\\ScriptHandler::postDrupalScaffoldProcedure",
+            "Greencko\\Composer\\ScriptHandler::postDrupalScaffoldSubProfileProcedure"
         ],
         "clean-dev": [
-            "Varbase\\composer\\ScriptHandler::removeGitDirectories",
-            "Greencko\\composer\\ScriptHandler::removeGitDirectories"
+            "Greencko\\Composer\\ScriptHandler::removeGitDirectories"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
+        "_readme": [
+            "NOTICE: We're now using composer patches from Vardot repository to suggest",
+            "several fixes and better handling of patches in your Drupal project.",
+            "You'll notice that we have included (https://github.com/vardot/composer-patches)",
+            "in this composer.json repositories. This will replace the original",
+            "library (cweagans/composer-patches) with our own from (vardot/composer-patches).",
+            "See https://github.com/cweagans/composer-patches/pull/243 and more details",
+            "on our changes on the composer-patches package. Once our changes get merged,",
+            "we will revert to using (cweagans/composer-patches) without this override."
+        ],
         "branch-alias": {
             "dev-8.x-6.x": "8.6.x-dev"
         },
@@ -200,17 +155,35 @@
             "web/profiles/{$name}": [
                 "type:drupal-profile"
             ],
+            "web/profiles/greencko/modules/{$name}": [
+                "greencko/greencko_blog",
+                "greencko/greencko_core",
+                "greencko/greencko_dashboard",
+                "greencko/greencko_media",
+                "greencko/greencko_pages",
+                "greencko/greencko_site",
+                "greencko/greencko_toolbar",
+                "greencko/greencko_user",
+                "greencko/greencko_ui",
+                "greencko/greencko_wysiwyg"
+            ],
             "web/modules/contrib/{$name}": [
                 "type:drupal-module"
             ],
             "web/modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
+            "web/profiles/greencko/themes/{$name}": [
+                "greencko/greencko_ui"
+            ],
             "web/themes/contrib/{$name}": [
                 "type:drupal-theme"
             ],
             "web/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
+            ],
+            "web/libraries/fontawesome": [
+                "fortawesome/font-awesome"
             ],
             "web/libraries/slick": [
                 "npm-asset/slick-carousel"
@@ -223,7 +196,7 @@
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "drush/contrib/{$name}": [
+            "private/drush/contrib/{$name}": [
                 "type:drupal-drush"
             ]
         },
@@ -245,11 +218,41 @@
                 {
                     "name": "ace",
                     "package": "npm-asset/ace-builds"
+                },
+                {
+                    "name": "spectrum",
+                    "package": "npm-asset/spectrum"
+                },
+                {
+                    "name": "fontawesome",
+                    "package": "npm-asset/fortawesome--fontawesome-free"
                 }
             ]
         },
         "enable-patching": true,
         "composer-exit-on-patch-failure": true,
-        "patches": {}
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "patches": {
+            "drupal/druadmin_lte_theme": {
+                "Issue #2995449: admin_toolbar dropdown gets behind the header": "https://www.drupal.org/files/issues/2018-08-27/admin_toolbar_dropdown_gets_behind_the_header-2995449-5.patch"
+            }
+        },
+        "patches-ignore": {
+            "drupal/varbase_core": {
+                "drupal/core": {
+                    "Issue #2815221: Add quickedit to the latest-revision route": "https://www.drupal.org/files/issues/2018-09-24/2815221-109.patch"
+                }
+            },
+            "greencko/greencko": {
+                "drupal/bootstrap_barrio": {
+                    "Issue #3033766: Notice: Array to string conversion in Drupal\\Core\\Template\\AttributeArray->__toString()": "https://www.drupal.org/files/issues/2019-02-23/bootstrap_barrio-handle_class_array-3033766-8.patch"
+                },
+                "drupal/bootstrap": {
+                    "Issue #3027569 by markcarver, just_like_good_vibes: Error:\n Unsupported operand types during providers JSON discovery": "https://www.drupal.org/files/issues/2019-01-24/3027569-8.x-3.x-8.patch"
+                }
+            }
+        }
     }
 }

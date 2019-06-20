@@ -1,6 +1,6 @@
 # ==============================================================================
-# List of default Vardoc components, which they will be
-# installed when we install Vardoc.
+# List of default Varbase components, which they will be
+# installed when we install Varbase.
 # ==============================================================================
 config_bit:
   type: list
@@ -13,22 +13,17 @@ config_bit:
         - libraries
         # Enable listed Varbase modules in order at this installation step.
         - varbase_core
+        - varbase_media
+        - varbase_editor
         - varbase_admin
-        - varbase_total_control
         - varbase_security
         - varbase_seo
-        - varbase_editor
-        - varbase_media
         - varbase_webform
         - varbase_page
         - varbase_landing
+        - varbase_total_control
+        - varbase_tour
+        # Enable listed Greencko modules in order at this installation step.
         - greencko_core
-        - greencko_user
-        - greencko_editor
-        - greencko_media
         - greencko_pages
-        - greencko_paragraphs
-        - greencko_webform
-        - greencko_seo
-        - greencko_search
-
+        - greencko_toolbar

@@ -1,25 +1,38 @@
 name: 'Greencko Drupal Distribution'
-description: 'Enhanced Drupal distribution based upon Varbase'
 type: profile
+description: 'Enhanced Drupal distribution based upon Varbase'
 core: 8.x
-version: 8.x-6.x-dev
-package: Greencko
-'base profile': varbase
+version: 8.x-0.2
 distribution:
   name: Greencko
   install:
-    theme: greencko_ui
+    theme: varui
+package: Greencko
+'base profile': varbase
+dependencies:
+  # core
+#  - drupal:field_layout
+#  - drupal:filter
+#  - drupal:layout_builder
+  - drupal:system
+
+
+  # contrib modules
+#  - fontawesome:fontawesome
+#  - toolbar_menu:toolbar_menu
+install:
+  - 'features:features'
+  - 'features:features_ui'
+themes:
+  # Custom themes.
+  - bootstrap_barrio
+  - greencko_ui
+
+#excluded_dependencies:
+#  - coffee:coffee
+#excluded_themes:
+#  - vartheme_admin
 features: true
 'interface translation project': greencko
 'interface translation server pattern': profiles/greencko/translations/%project-%version-%language.po
-dependencies:
-  - address
-  - field_layout
-  - material_admin_support
-  - system
-  - toolbar_menu
-  - tracker
-  - type_style
-themes:
-  - bootstrap
-  - greencko_ui
+

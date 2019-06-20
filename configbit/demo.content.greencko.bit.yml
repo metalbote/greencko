@@ -1,11 +1,11 @@
 # ==============================================================================
-# List of extra varbase sub profile basic components, which they will be listed
-# in the extra components form, when we install varbase.
+# List of Greencko demo components, which they will be listed under the
+# Extra components installation step, in the Demo content section.
 # ==============================================================================
 config_bit:
   type: list
   for: greencko.info.yml
   when:
-    show_extra_components: true
+    show_demo: false
     list:
       dependencies:

@@ -1,35 +1,91 @@
-.DS_Store
+### ignore OS specifics ################################################################################################
+*~
+.directory
+.fuse_hidden*
+.nfs*
+.Trash-*
+.DS_Store*
+Thumbs.db
+ehthumbs.db
+.bash_history
+.bashrc
+errors.log
 
-# ignore IDE Settings
+### ignore IDE Settings ################################################################################################
+
+#### Eclipse
+.project
+.pydevproject
+.settings
+.buildpath
+
+#### JetBrains
+/.idea/
 .idea/
 .idea_modules/
-nbproject/private/
+
+#### Netbeans
+nbproject
 nbbuild/
 nbdist/
 .nb-gradle/
+
+#### Pinegrow
 _pgbackup
 pinegrow.json
 
-## ignore packager folders
-bower_components/
+#### Editors
+*.swp
+*.*~
+.vim
+
+### ignore package manager's stuff #####################################################################################
+
+#### Node.js, Yarn, Bower
+bower_components
 node_modules/
+.npm
+.node_repl_history
+.yarn-integrity
 package-lock.json
 
-## ignore tempory folders
-tmp
-.tmp-ico
+#### composer
+/private/vendor/*
+
+### ignore Build system stuff ##########################################################################################
+
+#### Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+#### Sass
 .sass-cache/
+*.css.map
 
-## Log files
-# *.logs
+#### Temporary Folders
+tmp/
 
-### Versioning
-.svn/
+### ignore test results folder #########################################################################################
+/tests/results
 
-# Drupal
-/modules/contrib
-/themes/contrib
-/translations
+### ignore Log files ###################################################################################################
+*.logs
 
-# Specials
-/assets/colors.png
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+php.log
+logs/*
+!logs/.gitkeep
+
+### ignore Drupal files ################################################################################################
+/libraries/*
+/modules/*
+/themes/*
+
+### ignore test results ################################################################################################
+/tests/reports/*
+
+### ignore sensitive data ##############################################################################################
