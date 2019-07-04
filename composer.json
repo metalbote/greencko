@@ -1,5 +1,5 @@
 {
-  "name": "greencko/greencko",
+  "name": "metalbote/greencko",
   "description": "Enhanced Drupal distribution based upon Varbase",
   "type": "drupal-profile",
   "license": "GPL-2.0-or-later",
@@ -40,9 +40,9 @@
         }
       }
     },
-    "greencko/greencko": {
+    "metalbote/greencko": {
       "type": "vcs",
-      "url": "ssh://git@gitea.psh:22/Greencko/greencko.git"
+      "url": "https://github.com/metalbote/greencko.git"
     }
   },
   "require": {
