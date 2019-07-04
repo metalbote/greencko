@@ -3,6 +3,8 @@
   "description": "Enhanced Drupal distribution based upon Varbase",
   "type": "drupal-profile",
   "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "authors": [
     {
       "name": "Jörg Riemenschneider",
@@ -46,34 +48,40 @@
     }
   },
   "require": {
-    "composer/installers": "^1.5.0",
-    "oomphinc/composer-installers-extender": "^1.1.2",
+    "composer/installers": "^1.5",
+    "oomphinc/composer-installers-extender": "^1.1",
     "cweagans/composer-patches": "^1.6.4",
     "drupal-composer/drupal-scaffold": "^2.4.0",
     "drupal/drupal-library-installer-plugin": "^0.3",
     "webflo/drupal-finder": "^1.1.0",
     "webmozart/path-util": "^2.3.0",
-    "vardot/varbase": "^8.6.9"
+    "vardot/varbase": "^8.6.9",
+    "drupal/console": "~1.0",
+    "drush/drush": "^8.1.16",
+    "webflo/drupal-core-strict": "^8.6"
   },
   "require-dev": {
-    "drush/drush": "^8.1.16",
     "drupal/coder": "^8.3",
     "drupal/drupal-extension": "^3.4.1",
     "phing/phing": "^2.16.1",
-    "behat/behat": "^3.4.3",
-    "behat/mink": "^1.7.1",
+    "phpmd/phpmd": "^2.6",
+    "mglaman/phpstan-drupal": "^0.11.7",
+    "behat/behat": "^3.5",
+    "behat/mink": "1.7.x-dev",
     "behat/mink-extension": "^2.3",
     "behat/mink-goutte-driver": "^1.2",
     "behat/mink-zombie-driver": "^1.4",
     "behat/mink-selenium2-driver": "1.3.x-dev",
     "behatch/contexts": "^3.2",
     "emuse/behat-html-formatter": "dev-master",
+    "rdx/behat-variables": "^1.2",
     "geerlingguy/drupal-vm": "^5.0"
   },
   "config": {
     "bin-dir": "private/bin",
     "secure-http": false,
     "optimize-autoloader": true,
+    "vendor-dir": "private/vendor",
     "process-timeout": 0,
     "preferred-install": {
       "drupal/core": "dist"
@@ -83,7 +91,10 @@
     "psr-4": {
       "Greencko\\Composer\\": "src/Composer",
       "Greencko\\Phing\\": "src/Phing"
-    }
+    },
+    "files": [
+      "load.environment.php"
+    ]
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
@@ -107,9 +118,17 @@
   "conflict": {
     "drupal/drupal": "*"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "extra": {
+    "_readme": [
+      "NOTICE: We're now using composer patches from Vardot repository to suggest",
+      "several fixes and better handling of patches in your Drupal project.",
+      "You'll notice that we have included (https://github.com/vardot/composer-patches)",
+      "in this composer.json repositories. This will replace the original",
+      "library (cweagans/composer-patches) with our own from (vardot/composer-patches).",
+      "See https://github.com/cweagans/composer-patches/pull/243 and more details",
+      "on our changes on the composer-patches package. Once our changes get merged,",
+      "we will revert to using (cweagans/composer-patches) without this override."
+    ],
     "branch-alias": {
       "dev-8.x-1.x": "8.1.x-dev"
     },
@@ -136,7 +155,6 @@
         "greencko/greencko_site",
         "greencko/greencko_toolbar",
         "greencko/greencko_user",
-        "greencko/greencko_ui",
         "greencko/greencko_wysiwyg"
       ],
       "web/modules/contrib/{$name}": [
@@ -203,14 +221,15 @@
     },
     "enable-patching": true,
     "composer-exit-on-patch-failure": true,
+    "patchLevel": {
+      "drupal/core": "-p2"
+    },
     "patches": {
       "drupal/core": {
-        "Issue #2828681: Book Navigation Block does not sort Books by weight.":
-        "https://www.drupal.org/files/issues/2828681-13.patch"
+        "Issue #2828681: Book Navigation Block does not sort Books by weight.": "https://www.drupal.org/files/issues/2828681-13.patch"
       },
       "drush/drush": {
-        "Add profile dependencies for drush.":
-        "https://patch-diff.githubusercontent.com/raw/drush-ops/drush/pull/2697.patch"
+        "Add profile dependencies for drush.": "https://patch-diff.githubusercontent.com/raw/drush-ops/drush/pull/2697.patch"
       }
     }
   }
