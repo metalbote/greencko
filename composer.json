@@ -225,8 +225,17 @@
       "drupal/core": "-p2"
     },
     "patches": {
+      "drupal/bootstrap": {
+        "Issue #3027569 by markcarver, just_like_good_vibes: Error:\n Unsupported operand types during providers JSON discovery": "https://www.drupal.org/files/issues/2019-01-24/3027569-8.x-3.x-8.patch"
+      },
+      "drupal/bootstrap_barrio": {
+        "Issue #3033766: Notice: Array to string conversion in Drupal\\Core\\Template\\AttributeArray->__toString()": "https://www.drupal.org/files/issues/2019-02-23/bootstrap_barrio-handle_class_array-3033766-8.patch"
+      },
       "drupal/core": {
         "Issue #2828681: Book Navigation Block does not sort Books by weight.": "https://www.drupal.org/files/issues/2828681-13.patch"
+      },
+      "drupal/druadmin_lte_theme": {
+        "Issue #2995449: admin_toolbar dropdown gets behind the header": "https://www.drupal.org/files/issues/2018-08-27/admin_toolbar_dropdown_gets_behind_the_header-2995449-5.patch"
       },
       "drush/drush": {
         "Add profile dependencies for drush.": "https://patch-diff.githubusercontent.com/raw/drush-ops/drush/pull/2697.patch"
