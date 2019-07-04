@@ -20,8 +20,7 @@ errors.log
 .buildpath
 
 #### JetBrains
-/.idea/
-.idea/
+.idea
 .idea_modules/
 
 #### Netbeans
@@ -50,7 +49,8 @@ node_modules/
 package-lock.json
 
 #### composer
-/private/vendor/*
+vendor/
+web/
 
 ### ignore Build system stuff ##########################################################################################
 
@@ -68,7 +68,7 @@ pids
 tmp/
 
 ### ignore test results folder #########################################################################################
-/tests/results
+/results
 
 ### ignore Log files ###################################################################################################
 *.logs

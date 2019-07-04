@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Greencko" default="help">
+
+  <!-- Import environment variables -->
+  <property environment="env"/>
+
+  <!-- Locations of required binaries. -->
+  <property name="phing" value="${project.basedir}private/bin/phing"/>
+  <property name="drush" value="${project.basedir}private/bin/drush"/>
+  <property name="drupal" value="${project.basedir}private/bin/drupal"/>
+  <property name="composer" value="/usr/local/bin/composer"/>
+  <property name="npm" value="/usr/local/bin/npm"/>
+  <property name="rsync" value="/usr/bin/rsync"/>
+
+  <!-- Installation and build-specific variables. -->
+  <property name="docroot" value="web"/>
+  <property name="git" value=".git"/>
+  <property name="profile" value="${docroot}/profiles/greencko"/>
+  <property name="site" value="${docroot}/sites/default"/>
+  <property name="version" value="HEAD"/>
+
+  <!-- Database credentials. -->
+  <property name="db.type" value="mysql"/>
+  <property name="db.host" value="${env.MYSQL_HOSTNAME}"/>
+  <property name="db.user" value="${env.MYSQL_USER}"/>
+  <property name="db.password" value="${env.MYSQL_PASSWORD}"/>
+  <property name="db.database" value="${env.MYSQL_DATABASE}"/>
+  <property name="db.url"
+            value="${db.type}://${db.user}:${db.password}@${db.host}/${db.database}"/>
+
+  <taskdef name="truncatecachetables"
+           classname="\Greencko\Phing\TruncateCacheTablesTask"/>
+  <taskdef name="emptymysqldatabase"
+           classname="\Greencko\Phing\MySqlEmptyDatabaseTask"/>
+
+  <target name="help" description="Phing target list">
+    <exec executable="${phing}"
+          passthru="true">
+      <arg value="-l"/>
+    </exec>
+  </target>
+
+  <!-- Finds required binaries. -->
+  <target name="env">
+    <if>
+      <not>
+        <available file="${drush}" property="drush.exists"/>
+      </not>
+      <then>
+        <exec command="which drush" outputProperty="drush"/>
+      </then>
+    </if>
+    <if>
+      <not>
+        <available file="${drupal}" property="drupal.exists"/>
+      </not>
+      <then>
+        <exec command="which drupal" outputProperty="drupal"/>
+      </then>
+    </if>
+    <exec command="which composer" outputProperty="composer"/>
+    <exec command="which npm" outputProperty="npm"/>
+    <exec command="which rsync" outputProperty="rsync"/>
+
+    <echo message="Found Drush: ${drush}"/>
+    <echo message="Found DrupalConsole: ${drupal}"/>
+    <echo message="Found Composer: ${composer}"/>
+    <echo message="Found NPM: ${npm}"/>
+    <echo message="Found rsync: ${rsync}"/>
+    <echo message="Environment file:"/>
+    <echo message="MYSQL_DATABASE=${env.MYSQL_DATABASE}"/>
+    <echo message="MYSQL_PORT=${env.MYSQL_PORT}"/>
+    <echo message="MYSQL_HOSTNAME=${env.MYSQL_HOSTNAME}"/>
+    <echo message="MYSQL_USER=${env.MYSQL_USER}"/>
+    <echo message="MYSQL_PASSWORD=${env.MYSQL_PASSWORD}"/>
+    <echo message="DRUSH_OPTIONS_URI=${env.DRUSH_OPTIONS_URI}"/>
+  </target>
+
+  <!-- Syncs the profile into the Drupal code base. -->
+  <target name="push" depends="env">
+    <!-- Create the destination if it doesn't exist. -->
+    <mkdir dir="${profile}"/>
+
+    <!--
+    bower.json may have changed, so reinstall front-end dependencies using
+    the version of Bower installed locally in node_modules. The
+    install-libraries script lives in package.json.
+    -->
+    <exec command="${npm} run install-libraries" passthru="true"/>
+
+    <!-- rsync the profile, excluding developer flotsam. -->
+    <filesync destinationDir="${profile}" rsyncPath="${rsync}" sourceDir="."
+              verbose="false"
+              exclude=".idea,bin,build.xml,.git,.gitignore,${docroot},karma.conf.js,*.make,node_modules,.travis.yml,vendor"/>
+
+    <!-- JS libraries and contrib modules were copied over by the file sync. -->
+    <delete dir="libraries" failonerror="true" quiet="true"/>
+    <delete dir="modules/contrib" failonerror="true" quiet="true"/>
+  </target>
+
+  <!-- Pull modified profile back to root. -->
+  <target name="pull" depends="env">
+    <filesync destinationDir="." rsyncPath="${rsync}" sourceDir="${profile}/"
+              verbose="false"
+              exclude="libraries,modules/contrib,behat.local.yml"/>
+  </target>
+
+  <!-- Drop all tables from Database -->
+  <target name="mysql-drop-tables">
+    <echo message="${db.url}"/>
+    <echo message="Drop all MySQL tables from the database."/>
+    <emptymysqldatabase
+        url="${db.url}"
+        userId="${db.user}"
+        password="${db.password}"/>
+  </target>
+
+  <!-- Truncating cache tables -->
+  <target name="cache-tables-truncate">
+    <echo message="Truncating cache tables."/>
+    <truncatecachetables
+        url="${db.url}"
+        userId="${db.user}"
+        password="${db.password}"/>
+  </target>
+
+  <!-- Prepares the docroot for installation via the UI. -->
+  <target name="preinstall" depends="uninstall">
+    <if>
+      <not>
+        <isset property="www.user"/>
+      </not>
+      <then>
+        <exec command="whoami" outputProperty="www.user"/>
+      </then>
+    </if>
+
+    <copy file="${site}/default.settings.php" tofile="${site}/settings.php"/>
+    <chmod file="${site}/settings.php" mode="0775"/>
+    <mkdir dir="${site}/files" mode="0775"/>
+
+    <if>
+      <and>
+        <isset property="www.user"/>
+        <isset property="www.group"/>
+      </and>
+      <then>
+        <chown file="${site}/settings.php" user="${www.user}"
+               group="${www.group}"/>
+        <chown file="${site}/files" user="${www.user}" group="${www.group}"/>
+      </then>
+    </if>
+  </target>
+
+  <!-- Install with drush site install -->
+  <target name="install" depends="env">
+    <!-- Use passthru() when executing drush site-install so that we'll know if errors occur. -->
+    <exec
+        command="${drush} site-install greencko --yes --site-name=Greencko --account-name=webmaster --account-pass=.test1234 --account-mail=webmaster@greencko.test --db-url=${db.url}"
+        dir="${docroot}" passthru="true"/>
+    <exec command="${drush} en varbase_styleguide --yes" dir="${docroot}"/>
+    <exec command="${drush} en vbp_text_and_image --yes" dir="${docroot}"/>
+    <exec command="${drush} en varbase_media_instagram --yes" dir="${docroot}"/>
+    <exec command="${drush} en varbase_media_twitter --yes" dir="${docroot}"/>
+    <exec
+        command="${drush} config-set system.performance css.preprocess 0 --yes --format=boolean"
+        dir="${docroot}"/>
+    <exec
+        command="${drush} config-set system.performance js.preprocess 0 --yes --format=boolean"
+        dir="${docroot}"/>
+    <exec command="${drush} config-set system.logging error_level all --yes"
+          dir="${docroot}"/>
+  </target>
+
+  <!-- Builds code base from HEAD, overwriting docroot, and executes all database updates. -->
+  <target name="update" depends="env">
+    <phingcall target="build"/>
+    <exec command="${drush} cache-rebuild"/>
+    <exec command="${drush} updatedb --yes" dir="${docroot}" passthru="true"/>
+    <!-- TODO: Execute manual update steps as needed. -->
+  </target>
+
+  <!-- Prepares Greencko for the drupal.org packaging system. -->
+  <target name="package">
+    <!-- Create a symlink to the installed libraries so that the packaging script can scan 'em. -->
+    <symlink target="${profile}/libraries" link="libraries"/>
+    <exec command="./package"/>
+    <delete file="libraries"/>
+  </target>
+
+  <!-- Reinstall OpenEDU via drush (assumes settings.php) -->
+  <target name="db-reset" depends="env">
+    <exec command="${drush} si openedu --account-pass='imagex' -y"
+          dir="${docroot}" passthru="true"/>
+  </target>
+
+  <!-- Destroys the Drupal installation, but leaves the code base intact. -->
+  <target name="uninstall">
+    <if>
+      <available file="${site}" property="site.exists"/>
+      <then>
+        <chmod file="${site}" mode="0755"/>
+        <delete failonerror="true" includeemptydirs="true">
+          <fileset dir="${site}">
+            <include name="settings.php"/>
+            <include name="files/**"/>
+          </fileset>
+        </delete>
+        <phingcall target="mysql-drop-tables"/>
+      </then>
+    </if>
+  </target>
+
+  <!-- Destroys the installed code base. -->
+  <target name="destroy" depends="uninstall">
+    <delete failonerror="true" includeemptydirs="true">
+      <fileset dir="." defaultexcludes="false">
+        <include name="private/bin/**"/>
+        <include name="${docroot}/**"/>
+        <include name="node_modules/**"/>
+        <include name="private/vendor/**"/>
+      </fileset>
+    </delete>
+  </target>
+
+</project>
