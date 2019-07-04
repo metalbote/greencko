@@ -51,16 +51,16 @@ class ScriptHandler {
       }
     }
     // Prepare the settings file for installation.
-    if (!$fs->exists($drupal_root . '/sites/default/settings.php') and $fs->exists($drupal_root . '/profiles/greencko/src/env/settings.php')) {
-      $fs->copy($drupal_root . '/profiles/greencko/src/env/settings.php', $drupal_root . '/sites/default/settings.php');
+    if (!$fs->exists($drupal_root . '/sites/default/settings.php') and $fs->exists($drupal_root . '/profiles/greencko/src/assets/settings.php')) {
+      $fs->copy($drupal_root . '/profiles/greencko/src/assets/settings.php', $drupal_root . '/sites/default/settings.php');
       $fs->chmod($drupal_root . '/sites/default/settings.php', 0666);
       $event->getIO()
         ->write("Create default greencko settings.php file with chmod 0666 in /sites/default");
     }
 
     // Prepare the services file for installation.
-    if (!$fs->exists($drupal_root . '/sites/default/services.yml') and $fs->exists($drupal_root . '/profiles/greencko/src/env/services.yml')) {
-      $fs->copy($drupal_root . '/profiles/greencko/src/env/services.yml', $drupal_root . '/sites/default/services.yml');
+    if (!$fs->exists($drupal_root . '/sites/default/services.yml') and $fs->exists($drupal_root . '/profiles/greencko/src/assets/services.yml')) {
+      $fs->copy($drupal_root . '/profiles/greencko/src/assets/services.yml', $drupal_root . '/sites/default/services.yml');
       $fs->chmod($drupal_root . '/sites/default/services.yml', 0666);
       $event->getIO()
         ->write("Create default greencko services.yml file with /sites/default");
@@ -137,13 +137,13 @@ class ScriptHandler {
     $fs = new Filesystem();
     $drupal_root = static::getDrupalRoot(getcwd());
 
-    if ($fs->exists($drupal_root . '/profiles/greencko/src/env/robots-staging.txt')) {
+    if ($fs->exists($drupal_root . '/profiles/greencko/src/assets/robots-staging.txt')) {
       // Create staging robots file.
-      copy($drupal_root . '/profiles/greencko/src/env/robots-staging.txt', $drupal_root . '/robots-staging.txt');
+      copy($drupal_root . '/profiles/greencko/src/assets/robots-staging.txt', $drupal_root . '/robots-staging.txt');
     }
 
     if ($fs->exists($drupal_root . '/.htaccess')
-      && $fs->exists($drupal_root . '/profiles/greencko/src/env/htaccess_extra')) {
+      && $fs->exists($drupal_root . '/profiles/greencko/src/assets/htaccess_extra')) {
 
       // Alter .htaccess file.
       $htaccess_path = $drupal_root . '/.htaccess';
@@ -152,15 +152,15 @@ class ScriptHandler {
       foreach ($htaccess_lines as $line) {
         $lines[] = $line;
         if (strpos($line, "RewriteEngine on") !== FALSE) {
-          $lines = array_merge($lines, file($drupal_root . '/profiles/greencko/src/env/htaccess_extra'));
+          $lines = array_merge($lines, file($drupal_root . '/profiles/greencko/src/assets/htaccess_extra'));
         }
       }
       file_put_contents($htaccess_path, $lines);
     }
 
-    if ($fs->exists($drupal_root . '/profiles/greencko/src/env/development.services.yml')) {
+    if ($fs->exists($drupal_root . '/profiles/greencko/src/assets/development.services.yml')) {
       // Alter development.services.yml to have greencko's development services.
-      copy($drupal_root . '/profiles/greencko/src/env/development.services.yml', $drupal_root . '/sites/development.services.yml');
+      copy($drupal_root . '/profiles/greencko/src/assets/development.services.yml', $drupal_root . '/sites/development.services.yml');
     }
   }
 

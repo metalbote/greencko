@@ -59,7 +59,7 @@ $settings['file_private_path'] = '../private/sites/default/files';
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
 # ];
-$settings['maintenance_theme'] = 'greencko_ui';
+# $settings['maintenance_theme'] = 'greencko_ui';
 
 /**
  * PHP settings:
