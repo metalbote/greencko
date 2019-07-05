@@ -220,14 +220,11 @@
       ]
     },
     "enable-patching": true,
-    "composer-exit-on-patch-failure": true,
+    "composer-exit-on-patch-failure": false,
     "patchLevel": {
       "drupal/core": "-p2"
     },
     "patches": {
-      "drupal/bootstrap_barrio": {
-        "Issue #3033766: Notice: Array to string conversion in Drupal\\Core\\Template\\AttributeArray->__toString()": "https://www.drupal.org/files/issues/2019-02-23/bootstrap_barrio-handle_class_array-3033766-8.patch"
-      },
       "drupal/core": {
         "Issue #2828681: Book Navigation Block does not sort Books by weight.": "https://www.drupal.org/files/issues/2828681-13.patch"
       },
