@@ -94,10 +94,7 @@
     "psr-4": {
       "Greencko\\Composer\\": "src/Composer",
       "Greencko\\Phing\\": "src/Phing"
-    },
-    "files": [
-      "../../../load.environment.php"
-    ]
+    }
   },
   "scripts": {
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",

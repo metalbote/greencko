@@ -28,6 +28,7 @@
   <property name="db.url"
             value="${db.type}://${db.user}:${db.password}@${db.host}/${db.database}"/>
 
+
   <taskdef name="truncatecachetables"
            classname="\Greencko\Phing\TruncateCacheTablesTask"/>
   <taskdef name="emptymysqldatabase"
