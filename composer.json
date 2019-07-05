@@ -104,11 +104,11 @@
     "post-install-cmd": [
       "Greencko\\Composer\\ScriptHandler::createRequiredFiles",
       "@composer drupal-scaffold",
-      "./bin/phing push"
+      "./private/bin/phing push"
     ],
     "post-update-cmd": [
       "Greencko\\Composer\\ScriptHandler::createRequiredFiles",
-      "./bin/phing push"
+      "./private/bin/phing push"
     ],
     "post-drupal-scaffold-cmd": [
       "Greencko\\Composer\\ScriptHandler::postDrupalScaffoldProcedure",

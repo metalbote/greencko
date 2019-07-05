@@ -4,10 +4,6 @@
   <!-- Import environment variables -->
   <property environment="env"/>
 
-
-
-
-
   <!-- Locations of required binaries. -->
   <property name="phing" value="${project.basedir}/private/bin/phing"/>
   <property name="drush" value="${project.basedir}/private/bin/drush"/>
