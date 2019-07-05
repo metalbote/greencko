@@ -225,9 +225,6 @@
       "drupal/core": "-p2"
     },
     "patches": {
-      "drupal/bootstrap": {
-        "Issue #3027569 by markcarver, just_like_good_vibes: Error:\n Unsupported operand types during providers JSON discovery": "https://www.drupal.org/files/issues/2019-01-24/3027569-8.x-3.x-8.patch"
-      },
       "drupal/bootstrap_barrio": {
         "Issue #3033766: Notice: Array to string conversion in Drupal\\Core\\Template\\AttributeArray->__toString()": "https://www.drupal.org/files/issues/2019-02-23/bootstrap_barrio-handle_class_array-3033766-8.patch"
       },
