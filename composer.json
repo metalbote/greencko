@@ -233,9 +233,6 @@
       },
       "drupal/druadmin_lte_theme": {
         "Issue #2995449: admin_toolbar dropdown gets behind the header": "https://www.drupal.org/files/issues/2018-08-27/admin_toolbar_dropdown_gets_behind_the_header-2995449-5.patch"
-      },
-      "drush/drush": {
-        "Add profile dependencies for drush.": "https://patch-diff.githubusercontent.com/raw/drush-ops/drush/pull/2697.patch"
       }
     }
   }
